@@ -23,6 +23,9 @@ class Message
      */
     private $attributes;
 
+    /** @var array */
+    private $messageAttributes;
+
     /**
      * @var string
      */
@@ -34,10 +37,11 @@ class Message
      * @param string $body
      * @param array $attributes
      */
-    public function __construct(string $body = '', array $attributes = [])
+    public function __construct(string $body = '', array $attributes = [], array $messageAttributes = [])
     {
         $this->body = $body;
         $this->attributes = $attributes;
+        $this->messageAttributes = $messageAttributes;
     }
 
     /**
@@ -118,5 +122,21 @@ class Message
         $this->receiptHandle = $receiptHandle;
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMessageAttributes(): array
+    {
+        return $this->messageAttributes;
+    }
+
+    /**
+     * @param array $messageAttributes
+     */
+    public function setMessageAttributes(array $messageAttributes): void
+    {
+        $this->messageAttributes = $messageAttributes;
     }
 }
