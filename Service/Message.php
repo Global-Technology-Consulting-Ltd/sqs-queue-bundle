@@ -134,9 +134,13 @@ class Message
 
     /**
      * @param array $messageAttributes
+	 *
+	 * @return $this
      */
-    public function setMessageAttributes(array $messageAttributes): void
+    public function setMessageAttributes(array $messageAttributes)
     {
         $this->messageAttributes = $messageAttributes;
+		
+		return $this;
     }
 }
